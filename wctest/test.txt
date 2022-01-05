@@ -1,0 +1,13 @@
+The Go Programming Language, also commonly referred to as Golang, 
+is a general-purpose programming language, developed by a team at Google.
+The Go language was conceived in September 2007 by Robert Griesemer, 
+Rob Pike, and Ken Thompson at Google. 
+Go first appeared in November 2009, and the first version of the language
+was released in December 2012. The official web site of the Go project is 
+http://golang.org/. Go has its own elegance and programming idioms that 
+make the language productive and fun to code. Go also provides a 
+comprehensive standard library. The standard library provides all 
+the core packages programmers need to build real-world, web and 
+network-based programs. Go is a statically typed, natively compiled, 
+garbage-collected, concurrent programming language that belongs primarily 
+to the C family of languages in terms of basic syntax.
