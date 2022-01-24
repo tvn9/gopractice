@@ -10,32 +10,34 @@ func main() {
 			price:     10,
 			priceUp:   0.0,
 			priceDn:   .2,
-			salePrice: 0.0,
+			salePrice: 10,
 		},
 	}
-	book1.Price.salePrice = book1.discount(&book1.Price.priceDn)
+	book1.Price.salePrice = book1.discount(book1.Price.priceDn)
 
 	book2 := Book{
 		Title:  "1984",
 		Author: "George Orwell",
 		Price: price{
-			price:   38.95,
-			priceUp: 0.0,
-			priceDn: .5,
+			price:     38.95,
+			priceUp:   0.0,
+			priceDn:   .5,
+			salePrice: 38.95,
 		},
 	}
-	book2.Price.salePrice = book2.discount(&book2.Price.priceDn)
+	book2.Price.salePrice = book2.discount(book2.Price.priceDn)
 
 	book3 := Book{
 		Title:  "War of Peace",
 		Author: "Leo Tolstoy",
 		Price: price{
-			price:   28.95,
-			priceUp: .2,
-			priceDn: 0,
+			price:     28.95,
+			priceUp:   .2,
+			priceDn:   0.0,
+			salePrice: 28.95,
 		},
 	}
-	book3.Price.salePrice = book3.increase(&book3.Price.priceUp)
+	book3.Price.salePrice = book3.increase(book3.Price.priceUp)
 
 	books := ListBooks{&book1, &book2, &book3}
 
@@ -44,6 +46,7 @@ func main() {
 	book2.PrintItem()
 	book3.PrintItem()
 
+	// books = nil
 	// Print a list of books
 	books.PrintList()
 }
