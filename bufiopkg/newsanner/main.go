@@ -8,16 +8,16 @@ import (
 
 func main() {
 
-	// Testing bufio newscanner function
+	// Testing bufio newscanner function - the input expected a file
+	// command < file.txt
 	scanner := bufio.NewScanner(os.Stdin)
 
 	scanner.Split(bufio.ScanRunes)
 
-	wc := 0
+	bc := 0
 	for scanner.Scan() {
-		wc++
+		bc++
 	}
 
-	fmt.Println(wc)
-
+	fmt.Println("Number of byte:", bc)
 }
