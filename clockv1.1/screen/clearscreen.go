@@ -1,3 +1,7 @@
+// There are quite many examples of this code on the internet.
+// I found the example on golang libary search results here is the link
+// https://pkg.go.dev/github.com/GeistInDerSH/clearscreen
+
 package screen
 
 import (
