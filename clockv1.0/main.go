@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-
 	// Declare a holder array for holding the digital digits from 0 - 9
 	// and the hour, minute, second separator
 	type holder [5]string
@@ -93,7 +92,6 @@ func main() {
 
 	// digits array stores all digits in sub array type holder
 	digits := [...]holder{zero, one, two, three, four, five, six, seven, eight, nine, sep}
-
 	// for loop run the clock until press clt-c to stop the clock
 	for {
 		// ClearScreen
