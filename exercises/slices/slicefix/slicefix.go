@@ -15,11 +15,11 @@ func main() {
 	sort.Strings(books)
 
 	// -----------------------------------
-	// // this time, do not change the nums array to a slice
-	nums := []int{5, 1, 7, 3, 8, 2, 6, 9}
+	// this time, do not change the nums array to a slice
+	nums := [...]int{5, 1, 7, 3, 8, 2, 6, 9}
 
 	// // use the slicing expression to change the nums array to a slice below
-	sort.Ints(nums)
+	sort.Ints(nums[:])
 
 	// -----------------------------------
 	// Here: Use the strings.Join function to join the names
