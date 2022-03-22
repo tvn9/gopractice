@@ -3,43 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	var books [5]string
-	games := []string{"Little Plannet", "Call of duty", "minescrapt"}
+	games := [5]string{"Little Plannet", "Call of duty", "minescrapt"}
 
-	newGames := games
+	games[3] = "candy crush"
+	games[4] = "Roblox"
 
-	// the only way to compare slices is to compare the slice's elements
-	for i, g := range games {
-		for j, ng := range newGames {
-			if g == ng {
-				fmt.Printf("%d %v is equal to %d %v\n", i, g, j, ng)
-			}
-		}
-	}
+	fmt.Println(games, len(games))
 
-	// This will not work for slice, Go does not allow compare slice by == sign
-	/*
-		if games == newGames {
-			fmt.Println(games, "and", newGames, "are equal!")
-		}
-	*/
+	first3 := games[:3]
+	fmt.Printf("First 3 [:3] = %q\n", first3)
 
-	// but we can compare the len of the slices as follow
-	if len(games) == len(newGames) {
-		fmt.Println("they are equal")
-	}
+	l := len(games)
+	last2 := games[l-2:]
+	fmt.Printf("Last 2 [l-2:] - %q\n", last2)
 
-	fmt.Printf("books %T\n", books)
-	fmt.Printf("books %d\n", len(books))
+	games[0] = "Guita herro"
 
-	fmt.Printf("games %T\n", games)
-	fmt.Printf("games %d\n", len(games))
-	fmt.Printf("games %t\n", games == nil)
+	fmt.Println(games)
 
-	books[0] = "The Go Programming Language"
-	books[1] = "The Practice of Programming"
-	books[2] = "Introducing Go"
+	fmt.Printf("First 3 [:3] = %q\n", first3)
 
-	fmt.Printf("books: %q\n", books)
-	fmt.Printf("games: %q\n", games)
 }
