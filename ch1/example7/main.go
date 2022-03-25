@@ -11,15 +11,17 @@ import (
 func main() {
 
 	// Creat the channel where the received signal would be sent.
-	//
+	// The Notify will not flock when the signal is sent and the
+	// chennel is not ready.
 	sChan := make(chan os.Signal, 1)
 
 	// Notify all catch the given signals and send the os.Signal value through the sChan.
 	// If no signal specified in argument, all signals are matched.
 	signal.Notify(sChan, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
 
-	// Create channel to wait till the singal is hangled.
+	// Create channel to wait till the singal is handled.
 	exitChan := make(chan int)
+
 	go func() {
 		signal := <-sChan
 		switch signal {
