@@ -2,20 +2,29 @@ package main
 
 import "fmt"
 
-type names []string
-
 func main() {
 	// Declare a slice
-	newName := names{"Mike", "Chris", "Mark"}
+	var nums []int
 
-	// call changeDate function
-	changeData(newName)
+	nums = append(nums, 1, 3)
+	fmt.Println(nums)
 
-	fmt.Println(newName)
+	nums = append(nums, 2)
+	fmt.Println(nums)
+	fmt.Printf("nums len: %d nums cap: %d\n", len(nums), cap(nums))
 
-}
+	nums = append(nums, 4)
+	fmt.Println(nums)
+	fmt.Printf("nums len: %d nums cap: %d\n", len(nums), cap(nums))
 
-func changeData(n names) {
-	n[1] = "Tim"
-	fmt.Println(n)
+	nums = append(nums, 6, 7)
+	fmt.Println(nums)
+	fmt.Printf("nums len: %d nums cap: %d\n", len(nums), cap(nums))
+
+	nums = append(nums, nums[2:]...)
+	nums = append(nums, 2, 4)
+
+	nums = nums[:]
+	fmt.Println(nums)
+	fmt.Printf("nums len: %d nums cap: %d prt: %p\n", len(nums), cap(nums), &nums)
 }

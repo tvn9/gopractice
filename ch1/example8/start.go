@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	run()
 	prc := exec.Command("ls", "-a")
 	out := bytes.NewBuffer([]byte{})
 	prc.Stdout = out

@@ -7,7 +7,7 @@ import (
 	"os/exec"
 )
 
-func main() {
+func run() {
 
 	prc := exec.Command("ls", "-a")
 	out := bytes.NewBuffer([]byte{})

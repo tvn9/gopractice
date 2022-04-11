@@ -15,4 +15,7 @@ func main() {
 	for i, w := range words {
 		fmt.Printf("Word %d is: %s\n", i, w)
 	}
+
+	// Call the SplitUnderScore from anyother.go
+	splitUnderScore()
 }
