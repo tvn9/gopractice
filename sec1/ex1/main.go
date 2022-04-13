@@ -18,6 +18,7 @@ func main() {
 	// path.Split function allow user to obmit return values
 	// in this example, dir is obmited
 	// dir1, file1 = path.Split("videos/mnteverest.css")
+	// fmt.Println(dir1, file1)
 	_, file1 = path.Split("videos/mnteverest.css")
 	fmt.Println(dir1, file1)
 
