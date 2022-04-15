@@ -5,7 +5,7 @@ import "fmt"
 
 func main() {
     const (
-        nov = iota + 11
+        nov = (11 - iota)
         oct
         sep
     )
