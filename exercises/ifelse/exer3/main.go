@@ -22,7 +22,7 @@ import "fmt"
 
 func main() {
 	// DO NOT TOUCH THIS
-	isSphere, radius := true, 20
+	isSphere, radius := true, 200
 
 	var big bool
 
@@ -48,9 +48,7 @@ func main() {
 		big = true
 	}
 
-	if big != true {
-		fmt.Println("I don't know")
-	} else if isSphere {
+	if isSphere && big {
 		fmt.Println("It's a big sphere.")
 	} else {
 		fmt.Println("I don't know.")
