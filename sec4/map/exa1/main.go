@@ -57,13 +57,16 @@ func main() {
 
 	// Map iteration
 	fmt.Println("--------- Top City Population ---------")
+	numOfPeople := 0
 	for k, v := range cityPopulation {
-		fmt.Printf("%q %d\n", k, v)
+		numOfPeople += v
+		fmt.Printf("City %q - Population: %d\n", k, v)
 	}
+	fmt.Printf("Total combined most populated cities %d\n", numOfPeople)
 
 	fmt.Println("--------- World Top GDP per Capita ---------")
-	for k, v := range worlTopIncome {
-		fmt.Printf("%q %d\n", k, v)
+	for k, v := range cityPopulation {
+		fmt.Printf("City %q - income per capita: %d\n", k, v)
 	}
 
 }
