@@ -1,0 +1,120 @@
+//--Summary:
+//  Create a program to manage lending of library books.
+//
+//--Requirements:
+//* The library must have books and members, and must include:
+//  - Which books have been checked out
+//  - What time the books were checked out
+//  - What time the books were returned
+//* Perform the following:
+//  - Add at least 4 books and at least 3 members to the library
+//  - Check out a book
+//  - Check in a book
+//  - Print out initial library information, and after each change
+//* There must only ever be one copy of the library in memory at any time
+//
+//--Notes:
+//* Use the `time` package from the standard library for check in/out times
+//* Liberal use of type aliases, structs, and maps will help organize this project
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+const (
+	available   = true
+	unavailable = false
+)
+
+type Book struct {
+	isbn, title, author string
+	available           bool
+}
+
+type Member struct {
+	name, last, cardID  string
+	address             Address
+	memDate, cancelDate time.Time
+	active              bool
+}
+
+type Address struct {
+	addrNum                                      int
+	suite, street, city, state, zipcode, country string
+}
+
+type Library struct {
+	name    string
+	address Address
+	members []Member
+	books   []Book
+}
+
+type Inventory struct {
+	count int
+}
+
+func main() {
+	// Let create a book list
+	learnGo001 := Book{
+		isbn:   "lgo001",
+		title:  "Learning Go",
+		author: "Jon Bodner",
+	}
+	learnTDD001 := Book{
+		isbn:   "ltdd001",
+		title:  "Learning Test-Driven Development",
+		author: "Saleem Siddiqui",
+	}
+	learnPy001 := Book{
+		isbn:   "lpy001",
+		title:  "Learning Python",
+		author: "Mark Lutz",
+	}
+
+	// Let create some members
+	mb001 := Member{name: "Liam", last: "Smith"}
+	mb002 := Member{name: "Noah", last: "Johnson"}
+	mb003 := Member{name: "Oliver", last: "Williams"}
+
+	// Create a place holder for a library
+	lib001 := Library{}
+
+	// Create a placeholder for an address
+	addr001 := Address{}
+
+	// Create a slice of members
+	mbl001 := []Member{mb001, mb002, mb003}
+
+	// Slice of books
+	bl001 := []Book{learnGo001, learnTDD001, learnPy001}
+
+	// Create a library
+	addr001.addrNum = 150
+	addr001.street = "E San Fernando St."
+	addr001.city = "San Jose"
+	addr001.state = "California"
+	addr001.zipcode = "95112"
+
+	lib001.name = "Dr. Martin Luther King, Jr. Liberal"
+	lib001.members = mbl001
+	lib001.books = bl001
+
+	fmt.Println(lib001)
+
+	// Book manager
+	book001 := Inventory{}
+	book001 = map[Book]int{
+		learnGo001: 100,
+	}
+
+}
+
+func checkAvailable(in Inventory, title string) bool {
+	if in.books >= 1 {
+		return available
+	}
+}
