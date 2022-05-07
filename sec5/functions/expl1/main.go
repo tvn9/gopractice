@@ -33,11 +33,12 @@ func (coord *Coordinate) moveCoordinate(x, y int) {
 
 func main() {
 	// defind an object literal of type Coordinate
-	coord := Coordinate{5, 5}
+	coord := &Coordinate{5, 5} // This will works
+	// coord := Coordinate{5, 5} // This will works too
 	fmt.Printf("\nCoordinate initial value X=%d, Y=%d\n", coord.X, coord.Y)
 
 	// Call moveCoordinate func to move coordinate X, Y by 2 points
-	moveCoordinate(2, 2, &coord)
+	moveCoordinate(2, 2, coord)
 	fmt.Printf("\nCoordinate X=5 + 2, Y=5 + 2 => X = %d, Y = %d\n", coord.X, coord.Y)
 
 	// call function receiver without pointer to Coordinate object
@@ -49,5 +50,4 @@ func main() {
 	fmt.Printf("\nCoordinate X = %d, Y = %d ", coord.X, coord.Y)
 	coord.moveCoordinate(-2, -2)
 	fmt.Printf("after added -2 to x, y; => X = %d, Y = %d\n", coord.X, coord.Y)
-
 }
