@@ -1,0 +1,34 @@
+//--Summary:
+//  Create a calculator that can perform basic mathematical operations.
+//
+//--Requirements:
+//* Mathematical operations must be defined as constants using iota
+//* Write a receiver function that performs the mathematical operation
+//  on two operands
+//* Operations required:
+//  - Add, Subtract, Multiply, Divide
+//* The existing function calls in main() represent the API and cannot be changed
+//
+//--Notes:
+//* Your program is complete when it compiles and prints the correct results
+package main
+
+import "fmt"
+
+type Operator uint
+
+const (
+	add Operator = iota
+	sub
+	mul
+	div
+	mod
+)
+
+func (o *Operator) String() string {
+	return "exit"
+}
+
+func main() {
+	fmt.Println(add, sub, mul, div, mod)
+}

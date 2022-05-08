@@ -1,26 +1,31 @@
+// Iota example
 package main
 
 import "fmt"
 
+type Direction int
+
+const (
+	North Direction = iota
+	East
+	South
+	West
+)
+
+func (d Direction) string() string {
+	return []string{"North", "East", "South", "West"}[d]
+}
+
 func main() {
-	games := [5]string{"Little Plannet", "Call of duty", "minescrapt"}
+	north := North
+	fmt.Printf("North: %d %T\n", north, north)
+	fmt.Printf("East: %d %T\n", East, East)
+	fmt.Printf("South: %d %T\n", South, South)
+	fmt.Printf("West: %d %T\n", West, West)
 
-	games[3] = "candy crush"
-	games[4] = "Roblox"
-
-	fmt.Println(games, len(games))
-
-	first3 := games[:3]
-	fmt.Printf("First 3 [:3] = %q\n", first3)
-
-	l := len(games)
-	last2 := games[l-2:]
-	fmt.Printf("Last 2 [l-2:] - %q\n", last2)
-
-	games[0] = "Guita herro"
-
-	fmt.Println(games)
-
-	fmt.Printf("First 3 [:3] = %q\n", first3)
+	str := north.string()
+	for i, v := range str {
+		fmt.Printf("Testing iota %d %v\n", i, v)
+	}
 
 }
