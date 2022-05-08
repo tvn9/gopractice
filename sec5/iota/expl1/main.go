@@ -51,5 +51,4 @@ func main() {
 	fmt.Println(s.NewString())
 	fmt.Println(e.NewString())
 	fmt.Println(w.NewString())
-
 }

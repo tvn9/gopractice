@@ -15,20 +15,41 @@ package main
 
 import "fmt"
 
-type Operator uint
+type Operation uint
 
 const (
-	add Operator = iota
-	sub
-	mul
-	div
-	mod
+	Add Operation = iota
+	Subtract
+	Multiply
+	Divide
 )
 
-func (o *Operator) String() string {
-	return "exit"
+func (o Operation) calculate(a, b float64) float64 {
+	switch o {
+	case Add:
+		return a + b
+	case Subtract:
+		return a - b
+	case Multiply:
+		return a * b
+	case Divide:
+		return a / b
+	default:
+		return 0
+	}
 }
 
 func main() {
-	fmt.Println(add, sub, mul, div, mod)
+	//* The existing function calls in main() represent the API and cannot be changed
+	add := Operation(Add)
+	fmt.Println(add.calculate(2, 2)) // = 4
+
+	sub := Operation(Subtract)
+	fmt.Println(sub.calculate(10, 3)) // = 7
+
+	mul := Operation(Multiply)
+	fmt.Println(mul.calculate(3, 3)) // = 9
+
+	div := Operation(Divide)
+	fmt.Println(div.calculate(100, 2)) // = 50
 }
