@@ -1,31 +1,35 @@
-// Iota example
+// Interface
 package main
 
 import "fmt"
 
-type Direction int
+type MyInterface interface {
+	Function1()
+	Function2(i int) int
+}
 
-const (
-	North Direction = iota
-	East
-	South
-	West
-)
+type MyType int
 
-func (d Direction) string() string {
-	return []string{"North", "East", "South", "West"}[d]
+func execute(i MyInterface) {
+	i.Function1()
+}
+
+func (m *MyType) Function1() {
+	*m = *m * 8
+	fmt.Println(*m)
+}
+
+func (m *MyType) Function2(i int) int {
+	return i + i
 }
 
 func main() {
-	north := North
-	fmt.Printf("North: %d %T\n", north, north)
-	fmt.Printf("East: %d %T\n", East, East)
-	fmt.Printf("South: %d %T\n", South, South)
-	fmt.Printf("West: %d %T\n", West, West)
 
-	str := north.string()
-	for i, v := range str {
-		fmt.Printf("Testing iota %d %v\n", i, v)
-	}
+	m := MyType(10)
+
+	execute(&m)
+
+	temp := m.Function2(5)
+	fmt.Println(temp)
 
 }
