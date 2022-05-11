@@ -8,7 +8,7 @@ import (
 
 func count(cnt int) {
 	for i := 1; i <= cnt; i++ {
-		time.Sleep(2 * time.Second)
+		time.Sleep(1 * time.Second)
 		fmt.Println(i)
 	}
 }
@@ -16,6 +16,6 @@ func count(cnt int) {
 func main() {
 	go count(10)
 	fmt.Println("wait for goroutine")
-	time.Sleep(10000 * time.Millisecond)
+	time.Sleep(11 * time.Second)
 	fmt.Println("end program")
 }
