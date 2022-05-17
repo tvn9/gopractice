@@ -34,10 +34,10 @@ import (
 	"time"
 )
 
-func sumNums(rb bufio.Reader) int {
+func sumNums(rd bufio.Reader) int {
 	sum := 0
 	for {
-		line, err := rb.ReadString('\n')
+		line, err := rd.ReadString('\n')
 		if err == io.EOF {
 			return sum
 		}
@@ -51,12 +51,13 @@ func sumNums(rb bufio.Reader) int {
 		sum += num
 	}
 }
+
 func main() {
 	sum := 0
 	files := []string{"num1.txt", "num2.txt", "num3.txt", "num4.txt", "num5.txt"}
 
-	for _, ln := range files {
-		file, err := os.Open(ln)
+	for _, f := range files {
+		file, err := os.Open(f)
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -64,11 +65,11 @@ func main() {
 		rd := bufio.NewReader(file)
 
 		sumFn := func() {
-			sumNum := sumNums(*rd)
-			sum += sumNum
+			sub := sumNums(*rd)
+			sum += sub
 		}
 		go sumFn()
 	}
-	time.Sleep(time.Second)
+	time.Sleep(100 * time.Millisecond)
 	fmt.Println(sum)
 }
