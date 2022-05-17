@@ -26,11 +26,49 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
+	"os"
+	"strconv"
+	"time"
 )
 
+func sumNums(rb bufio.Reader) int {
+	sum := 0
+	for {
+		line, err := rb.ReadString('\n')
+		if err == io.EOF {
+			return sum
+		}
+		if err != nil {
+			fmt.Println("Error:", err)
+		}
+		num, err := strconv.Atoi(line[:len(line)-1])
+		if err != nil {
+			panic(err)
+		}
+		sum += num
+	}
+}
 func main() {
+	sum := 0
 	files := []string{"num1.txt", "num2.txt", "num3.txt", "num4.txt", "num5.txt"}
 
-	fmt.Println(files)
+	for _, ln := range files {
+		file, err := os.Open(ln)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		rd := bufio.NewReader(file)
+
+		sumFn := func() {
+			sumNum := sumNums(*rd)
+			sum += sumNum
+		}
+		go sumFn()
+	}
+	time.Sleep(time.Second)
+	fmt.Println(sum)
 }

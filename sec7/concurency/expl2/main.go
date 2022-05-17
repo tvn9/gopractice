@@ -15,11 +15,11 @@ func main() {
 	}
 
 	fmt.Println("Launching goroutines")
-	go wait(100)
-	go wait(900)
+	go wait(300)
+	go wait(1200)
 	go wait(1000)
 
 	fmt.Println("Launched.		Counter =", counter)
-	time.Sleep(1100 * time.Millisecond)
-	fmt.Println("Waited 1100ms. Counter =", counter)
+	time.Sleep(1300 * time.Millisecond)
+	fmt.Println("Waited 1300ms. Counter =", counter)
 }

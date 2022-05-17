@@ -23,6 +23,7 @@ func main() {
 	fmt.Printf("Result: %d\n", r1)
 
 	// just different way to pass result of compute func to other function
+	// this all call anonymus inline funtion
 	fmt.Printf("%d - %d = %d\n", a, b, compute(a, b, func(a, b int) int { return a - b }))
 
 	// define a closure func to multiply two numbers

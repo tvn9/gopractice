@@ -19,6 +19,6 @@ func main() {
 	for _, l := range data {
 		go capIt(l)
 	}
-	time.Sleep(110 * time.Millisecond)
+	time.Sleep(210 * time.Millisecond)
 	fmt.Printf("Capitalized: %c\n", capLetters)
 }
