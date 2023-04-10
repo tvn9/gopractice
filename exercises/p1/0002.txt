@@ -1,0 +1,4 @@
+Book Title: The Giving Tree
+Description: The Giving Tree by Shele Silvertein
+ID: 0002
+Price: 10.99

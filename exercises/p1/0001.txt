@@ -1,0 +1,4 @@
+Book Title: Harry Potter Box Set
+Description: Harry Potter is a series of seven fantasy novels written by British author J. K.
+ID: 0001
+Price:59.99
