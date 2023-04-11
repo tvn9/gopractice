@@ -14,10 +14,22 @@ func main() {
 
 	fmt.Print("Please enter you age: ")
 
-	userInput, _ := reader.ReadString('\n')
+	userInput, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("something wrong with the input, error:", err)
+		os.Exit(-1)
+	}
+
 	userInput = strings.Replace(userInput, "\n", "", -1)
 
-	userAge, _ := strconv.ParseInt(userInput, 0, 64)
+	userAge, err := strconv.ParseFloat(userInput, 64)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	} else if userAge <= 0 {
+		fmt.Println("Please enter age greater than zero")
+		return
+	}
 
 	if userAge >= 60 {
 		fmt.Println("Wecome to the senior club!")
