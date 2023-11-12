@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"learngo/clockv1.0/screen"
 	"time"
+
+	"github.com/tvn9/learngo/clockv1.0/screen"
 )
 
 func main() {

@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"learngo/sec7/mgrep/worker"
-	"learngo/sec7/mgrep/worklist"
+
 	"os"
 	"path/filepath"
 	"sync"
 
 	"github.com/alexflint/go-arg"
+	"github.com/tvn9/learngo/sec7/mgrep/worker"
+	"github.com/tvn9/learngo/sec7/mgrep/worklist"
 )
 
 func discoverDirs(wl *worklist.Worklist, path string) {
