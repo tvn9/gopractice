@@ -50,7 +50,7 @@ func (v *Vehicles) LiftDirector() {
 	fmt.Println()
 }
 
-func LiftDirector(vihicles []Vehicles) {
+func LiftRouter(vihicles []Vehicles) {
 	for _, t := range vihicles {
 		t.LiftDirector()
 	}
@@ -61,10 +61,10 @@ func main() {
 	c1 := Vehicles{"Car", "Prius 2020"}
 	m1 := Vehicles{"Motorcycles", "Magna 650"}
 
-	t1.LiftDirector()
-	c1.LiftDirector()
-	m1.LiftDirector()
+	// t1.LiftDirector()
+	// c1.LiftDirector()
+	// m1.LiftDirector()
 
 	vehicles := []Vehicles{t1, c1, m1}
-	LiftDirector(vehicles)
+	LiftRouter(vehicles)
 }
